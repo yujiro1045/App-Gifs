@@ -1,12 +1,15 @@
 import { useState } from 'react'
 
+import SearchIcon from '@mui/icons-material/Search';
+import { InputAdornment, TextField } from '@mui/material';
+
 
 export const AddCategory = ( { onNewCategoria } ) => {
 
-  const [ inputValue, setinputValue ] = useState('');
+  const [ inputValue, setInputValue ] = useState('');
 
   const onInputChange = ( { target } ) => {
-    setinputValue(target.value);
+    setInputValue(target.value);
   }
 
   const onSubmit = ( event ) => {
@@ -15,18 +18,26 @@ export const AddCategory = ( { onNewCategoria } ) => {
 
       //setCategorias( categorias => [ inputValue, ...categorias ])
       onNewCategoria( inputValue.trim() )
-      setinputValue( '' );
+      setInputValue( '' );
   }
 
 
   return (
     <form onSubmit={ onSubmit }>
-      <input 
-          type="text"
-          placeholder="buscar gifs"
+      <TextField
+          fullWidth
+          variant='outlined'
+          label="Buscar gifs"
           value={  inputValue }
           onChange={ onInputChange }
-      />
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
+                <SearchIcon />
+              </InputAdornment>
+            )
+          }}          
+/>
      </form>
   )
 }
