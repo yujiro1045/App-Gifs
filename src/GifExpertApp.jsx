@@ -1,26 +1,30 @@
+import { Button, Typography } from "@mui/material";
 import { useState } from "react"
 import { AddCategory, GifGrid } from "./components";
 
 
 export const GifExpertApp = () => {
 
-const [ categorias, setCategorias ] = useState([ '' ]);
+const [ categorias, setCategorias ] = useState([]);
 
 
 const onAddCategoria = ( newCategoria ) => {
 
   if (  categorias.includes ( newCategoria) ) return;
-     
-  //categorias.push(newCategoria);
-    setCategorias([ newCategoria ])
-    //setCategorias( cat => [ ...cat, 'kimetsu' ] );
     
+    setCategorias([ newCategoria ])  
 }
+
+const onClear = () => {
+  setCategorias([])
+}
+console.log(categorias)
+
 
   return (
     <>
       {/* titulo */} 
-      <h1>GifExpertApp</h1>
+      <h1>GifExpertAp</h1>
 
       {/* imput */}
       <AddCategory 
@@ -28,8 +32,12 @@ const onAddCategoria = ( newCategoria ) => {
           onNewCategoria={ (valor) => onAddCategoria(valor) }
              />
 
-      {/* listado de Gif */}
+      <Button onClick={onClear} variant="contained" sx={{ my: 1 }}>Limpiar</Button>
+
+
       
+
+      {/* listado de Gif */}
       
         { categorias.map( (categoria) => (
               <GifGrid key={ categoria } 
