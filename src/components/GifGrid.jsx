@@ -1,10 +1,9 @@
 
-import { useEffect, useState } from 'react';
-
 //import { getGifs } from '../helpers/getGifs'
 import { GifItem } from './GifItem';
 import { useFetchGifs } from '../hooks/useFetchGifs'
 import { getGifs } from '../helpers/getGifs';
+import { CircularProgress } from '@mui/material';
 
     
 
@@ -21,7 +20,7 @@ export const GifGrid = ({ categoria }) => {
         <h3>{ categoria }</h3>
         
         {
-            isLoading && ( <h2>cargando...</h2> )
+            isLoading && ( <CircularProgress /> )
             
         }
         <div className="card-grid">

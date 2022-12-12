@@ -12,7 +12,7 @@ const onAddCategoria = ( newCategoria ) => {
   if (  categorias.includes ( newCategoria) ) return;
      
   //categorias.push(newCategoria);
-    setCategorias([ ...categorias, newCategoria ])
+    setCategorias([ newCategoria ])
     //setCategorias( cat => [ ...cat, 'kimetsu' ] );
     
 }
